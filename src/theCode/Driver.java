@@ -22,18 +22,18 @@ public class Driver {
         Driver driver = new Driver();
         Population population = new Population(GeneticAlgorithm.POPULATION_SIZE, driver.initialRoute);
         population.sortRoutesByFitness();
-        GeneticAlgorithm geneticAlgorithm=new GeneticAlgorithm(driver.initialRoute);
+        GeneticAlgorithm geneticAlgorithm = new GeneticAlgorithm(driver.initialRoute);
         int generationNumber = 0;
         driver.printHeading(generationNumber++);
         driver.printPopulation(population);
-        while (generationNumber<GeneticAlgorithm.NUMB_OF_GENERATIONS){
+        while (generationNumber < GeneticAlgorithm.NUMB_OF_GENERATIONS) {
             driver.printHeading(generationNumber++);
-            population=geneticAlgorithm.evolve(population);
+            population = geneticAlgorithm.evolve(population);
             population.sortRoutesByFitness();
             driver.printPopulation(population);
         }
-        System.out.println("Best Route so far: "+population.getRoutes().get(0));
-        System.out.println("Distance: "+String.format("%.2f",population.getRoutes().get(0).calculateTotalDistance())+" miles");
+        System.out.println("Best Route so far: " + population.getRoutes().get(0));
+        System.out.println("Distance: " + String.format("%.2f", population.getRoutes().get(0).calculateTotalDistance()) + " miles");
     }
 
     public void printPopulation(Population population) {
@@ -45,7 +45,7 @@ public class Driver {
     }
 
     public void printHeading(int generationNumber) {
-        System.out.println("> Generation #" + generationNumber);
+        System.out.println("> Generation # " + generationNumber);
         String headingColumn1 = "Route";
         String remainingHeadingColumns = "Fitness| Distance (in miles)";
         int cityNamesLength = 0;
@@ -58,6 +58,7 @@ public class Driver {
         if ((arrayLength % 2) == 0) System.out.print(" ");
         System.out.println(" | " + remainingHeadingColumns);
         cityNamesLength += remainingHeadingColumns.length() + 3;
-        for (int x = 0; x < cityNamesLength + initialRoute.size() * 2; x++) System.out.print(" - ");
+        for (int x = 0; x < cityNamesLength + initialRoute.size() * 2; x++);
+//        System.out.print("-");
     }
 }

@@ -61,7 +61,7 @@ public class GeneticAlgorithm {
                 }
             }
         });
-        return null;
+        return crossoverRoute;
     }
 
     Route mutateRoute(Route route) {
@@ -79,7 +79,7 @@ public class GeneticAlgorithm {
         IntStream.range(0, TOURNAMENT_SELECTION_SIZE).forEach(x -> tournamentPopulation.getRoutes().set
                 (x, population.getRoutes().get((int) (Math.random() * population.getRoutes().size()))));
         tournamentPopulation.sortRoutesByFitness();
-        return null;
+        return tournamentPopulation;
     }
 }
 
